@@ -1,0 +1,176 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="admin.master.cs" Inherits="Massage_Reservation_System.admin" %>
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Admin Master Page</title>
+<%--    <link href="adminStyle.css" rel="stylesheet" />--%>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <style>
+        body {
+    justify-content: center;
+    align-items: center;
+    font-family: 'Lato', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    padding: 0;
+}
+
+
+#topnavbar-main {
+    background-color: #283e3e;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+}
+
+#header {
+    text-align: center;
+    color: white;
+}
+
+#content {
+    position: absolute;
+    top: 120px;
+    left: 0;
+    bottom: 120px;
+    right: 0;
+}
+
+#contentBox {
+    border: solid 1px;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 40px;
+    padding: 20px;
+}
+
+
+nav ul li a {
+    font-size: 18px;
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: .2em;
+}
+
+
+
+* {
+    box-sizing: border-box
+}
+
+nav {
+    position: relative;
+    padding-bottom: 12px;
+}
+
+
+    nav ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+
+        nav ul li {
+            display: inline;
+            padding: 10px;
+            margin: 0 40px 0 0;
+            opacity: .4;
+            transition: all 0.4s ease;
+        }
+
+            nav ul li:hover {
+                opacity: .7;
+            }
+
+table {
+    width: 100%;
+}
+
+td {
+    padding: 10px;
+}
+
+.button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+
+    .button:hover {
+        border-radius: 2px;
+        opacity: .7;
+    }
+
+.hyperlinkGV {
+    text-decoration: none;
+}
+
+h1 {
+    text-align: center;
+}
+
+    </style>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+
+
+        <div id="topnavbar-main">
+            <div id="header">
+                <h1>Chi Massage Admin Page</h1>
+            </div>
+            <div class="logo_container">
+            </div>
+
+
+            <nav id="topnavbar">
+                <ul class="MenuItems" >
+                    <li>
+                        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="viewAdmin.aspx">Admin</asp:HyperLink></li>
+                     <li>
+                        <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="viewUser.aspx">Users</asp:HyperLink></li>
+
+                    <li>
+                        <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="viewProducts.aspx">Products</asp:HyperLink></li>
+                   
+                    <li>
+                        <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="viewReservation.aspx">Reserve</asp:HyperLink></li>
+                    <li>
+                        <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="editCart.aspx">Order</asp:HyperLink></li>
+                    <li>
+                        <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="cusFeed.aspx">Customer_Feedback</asp:HyperLink></li>
+                    <li>
+                        <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="adminLogin.aspx">Logout</asp:HyperLink></li>
+
+                    
+
+                </ul>
+            </nav>
+
+
+
+        </div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </form>
+
+
+</body>
+</html>

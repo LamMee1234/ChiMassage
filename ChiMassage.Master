@@ -1,0 +1,410 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="ChiMassage.master.cs" Inherits="Massage_Reservation_System.ChiMassage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link rel="icon" href="Images/titleIcon.jpg" type="image/x-icon" />
+    <link href="css/masterPg.css" rel="stylesheet" />
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script type="text/javascript">
+        (function (d, m) {
+            var kommunicateSettings =
+                { "appId": "332f39262186235e2e650a4fdef4a5b91", "popupWidget": true, "automaticChatOpenOnNavigation": true };
+            var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
+            s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
+            var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
+            window.kommunicate = m; m._globals = kommunicateSettings;
+        })(document, window.kommunicate || {});
+/* NOTE : Use web server to view HTML files as real-time update will not work if you directly open the HTML file in the browser. */
+    </script>
+
+    <script>
+        var myVar;
+
+        function myFunction() {
+            myVar = setTimeout(showPage, 1400);
+        }
+
+        function showPage() {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("form1").style.display = "block";
+            document.getElementById("footer1").style.display = "block";
+
+        }
+    </script>
+
+    <style>
+        .site-footer {
+            background-color: #443b34;
+            padding: 45px 0 20px;
+            font-size: 15px;
+            line-height: 24px;
+            color: #737373;
+        }
+
+            .site-footer hr {
+                border-top-color: #bbb;
+                opacity: 0.5
+            }
+
+                .site-footer hr.small {
+                    margin: 20px 0
+                }
+
+            .site-footer h6 {
+                color: #fff;
+                font-size: 16px;
+                text-transform: uppercase;
+                margin-top: 5px;
+                letter-spacing: 2px
+            }
+
+            .site-footer a {
+                color: #737373;
+            }
+
+                .site-footer a:hover {
+                    color: #3366cc;
+                    text-decoration: none;
+                }
+
+        .footer-links {
+            padding-left: 0;
+            list-style: none
+        }
+
+            .footer-links li {
+                display: block
+            }
+
+            .footer-links a {
+                color: #737373
+            }
+
+                .footer-links a:active, .footer-links a:focus, .footer-links a:hover {
+                    color: #3366cc;
+                    text-decoration: none;
+                }
+
+            .footer-links.inline li {
+                display: inline-block
+            }
+
+        .site-footer .social-icons {
+            text-align: right
+        }
+
+            .site-footer .social-icons a {
+                width: 40px;
+                height: 40px;
+                line-height: 40px;
+                margin-left: 6px;
+                margin-right: 0;
+                border-radius: 100%;
+                background-color: #574f48
+            }
+
+        .copyright-text {
+            margin: 0
+        }
+
+        @media (max-width:991px) {
+            .site-footer [class^=col-] {
+                margin-bottom: 30px
+            }
+        }
+
+        @media (max-width:767px) {
+            .site-footer {
+                padding-bottom: 0
+            }
+
+                .site-footer .copyright-text, .site-footer .social-icons {
+                    text-align: center
+                }
+        }
+
+        .social-icons {
+            padding-left: 0;
+            margin-bottom: 0;
+            list-style: none
+        }
+
+            .social-icons li {
+                display: inline-block;
+                margin-bottom: 4px
+            }
+
+                .social-icons li.title {
+                    margin-right: 15px;
+                    text-transform: uppercase;
+                    color: #96a2b2;
+                    font-weight: 700;
+                    font-size: 13px
+                }
+
+            .social-icons a {
+                background-color: #eceeef;
+                color: #818a91;
+                font-size: 16px;
+                display: inline-block;
+                line-height: 44px;
+                width: 44px;
+                height: 44px;
+                text-align: center;
+                margin-right: 8px;
+                border-radius: 100%;
+                -webkit-transition: all .2s linear;
+                -o-transition: all .2s linear;
+                transition: all .2s linear
+            }
+
+                .social-icons a:active, .social-icons a:focus, .social-icons a:hover {
+                    color: #fff;
+                    background-color: #29aafe
+                }
+
+            .social-icons.size-sm a {
+                line-height: 34px;
+                height: 34px;
+                width: 34px;
+                font-size: 14px
+            }
+
+            .social-icons a.facebook:hover {
+                background-color: #3b5998
+            }
+
+            .social-icons a.twitter:hover {
+                background-color: #00aced
+            }
+
+            .social-icons a.linkedin:hover {
+                background-color: #007bb6
+            }
+
+            .social-icons a.instagram:hover {
+                background: radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%), radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%), radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent), linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%);
+            }
+
+        @media (max-width:767px) {
+            .social-icons li.title {
+                display: block;
+                margin-right: 0;
+                font-weight: 600
+            }
+        }
+
+        /* Center the loader */
+        #loader {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            z-index: 1;
+            width: 120px;
+            height: 120px;
+            margin: -76px 0 0 -76px;
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #3498db;
+            -webkit-animation: spin 2s linear infinite;
+            animation: spin 2s linear infinite;
+        }
+
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /*         Add animation to "page content" 
+*/ .animate-bottom {
+            position: relative;
+            -webkit-animation-name: animatebottom;
+            -webkit-animation-duration: 1s;
+            animation-name: animatebottom;
+            animation-duration: 1s
+        }
+
+        @-webkit-keyframes animatebottom {
+            from {
+                bottom: -100px;
+                opacity: 0
+            }
+
+            to {
+                bottom: 0px;
+                opacity: 1
+            }
+        }
+
+        @keyframes animatebottom {
+            from {
+                bottom: -100px;
+                opacity: 0
+            }
+
+            to {
+                bottom: 0;
+                opacity: 1
+            }
+        }
+
+        #myDiv {
+            display: none;
+            text-align: center;
+        }
+    </style>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+<body onload="myFunction()" style="margin: 0;">
+
+    <div id="loader"></div>
+
+
+    <form id="form1" style="display: none" runat="server" class="animate-bottom">
+
+        <header>
+            <div class="header">
+                <div class="inner_header">
+
+                    <div class="logo_container">
+
+                        <a href="HomePage.aspx">
+                            <img alt="icon" src="Images/titleIcon.jpg" style="border-radius: 50%; vertical-align: middle;" width="76" height="73" /></a>
+                        &nbsp&nbsp
+                        <a href="HomePage.aspx" style="text-decoration: none">Chi Massage</a>
+
+                    </div>
+
+
+                    <ul class="navigation">
+                        <li>
+                            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="HomePage.aspx" Style="text-decoration: none">Home</asp:HyperLink></li>
+                        <li>
+                            <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="MassageServices.aspx" Style="text-decoration: none">Massage Services</asp:HyperLink></li>
+                        <li>
+                            <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="MassageProducts.aspx" Style="text-decoration: none">Massage Products</asp:HyperLink></li>
+                        <li>
+                            <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="cart.aspx" Style="text-decoration: none">Cart</asp:HyperLink></li>
+                        <li>
+                            <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="profile.aspx" Style="text-decoration: none">Profile</asp:HyperLink></li>
+
+                        <li>
+                            <asp:LinkButton ID="lbLogin" OnClick="lbLogin_Click" runat="server" CausesValidation="False" Style="text-decoration: none">Login</asp:LinkButton></li>
+                    </ul>
+
+                </div>
+
+            </div>
+        </header>
+
+
+
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+        <!-- Site footer -->
+        <footer class="site-footer " id="footer1" style="display: none">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                        <h6>About</h6>
+                        <p class="text-justify" style="text-align: justify">Chi Massage is an online reservation/booking solution for this masssage company. High-quality booking services will be provided for Chi Massage's companies in all over the world and help them to grow and prosper. Our reputable and secure reservation system is designed to make bookings easy and comfortable for both our staffs and customers!</p>
+                    </div>
+
+                    <div class="col-xs-6 col-md-3">
+                        <h6>Categories</h6>
+                        <ul class="footer-links">
+                            <li><a href="MassageServices.aspx" style="text-decoration: none">Massage Services</a></li>
+                            <li><a href="MassageProducts.aspx" style="text-decoration: none">Massage Products</a></li>
+                            <li><a href="onlineReservation.aspx" style="text-decoration: none">Massage Reservation</a></li>
+                            <li><a href="cart.aspx" style="text-decoration: none">Cart</a></li>
+
+                        </ul>
+                    </div>
+
+                    <div class="col-xs-6 col-md-3">
+                        <h6>Quick Links</h6>
+                        <ul class="footer-links">
+                            <li><a href="aboutUs.aspx" style="text-decoration: none">About Us</a></li>
+                            <li><a href="contactUs.aspx" style="text-decoration: none">Contact Us</a></li>
+                            <li><a href="privacyPolicy.aspx" style="text-decoration: none">Privacy Policy</a></li>
+                            <li><a href="termsAndCondition.aspx" style="text-decoration: none">Terms & Conditions</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <hr>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-sm-6 col-xs-12">
+                        <p class="copyright-text">
+                            Copyright &copy; 2024 All Rights Reserved by 
+         <a href="HomePage.aspx" style="text-decoration: none">Chi Massage</a>.
+                        </p>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <ul class="social-icons">
+                            <li><a class="facebook" href="https://www.facebook.com/ThaiOdyssey"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a class="twitter" href="https://twitter.com/thaiodyssey?lang=en"><i class="fa fa-twitter"></i></a></li>
+                            <li><a class="instagram" href="https://www.instagram.com/thaiodyssey/?hl=en"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                            <li><a class="linkedin" href="https://my.linkedin.com/company/thai-odyssey"><i class="fa fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div id="google_translate_element"></div>
+                        <script type="text/javascript">  
+                            function googleTranslateElementInit() {
+                                new google.translate.TranslateElement
+                                    ({
+                                        pageLanguage: 'en',
+                                        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                                    },
+                                        'google_translate_element');
+                            }
+                        </script>
+                        <script type="text/javascript"
+                            src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">  
+                        </script>
+
+                    </div>
+                </div>
+
+            </div>
+        </footer>
+
+
+    </form>
+</body>
+</html>
